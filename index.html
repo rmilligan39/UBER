@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UBER – TFG Investment Research</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #111;
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 24px;
+    }
+    .report-brand {
+      font-size: 12px;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+    .header-table {
+      width: 100%;
+      font-size: 15px;
+      border-collapse: collapse;
+      margin-bottom: 32px;
+    }
+    .header-table th {
+      background-color: #1a1a2e;
+      color: white;
+      padding: 10px 12px;
+      text-align: left;
+    }
+    .header-table td {
+      padding: 10px 12px;
+      border: 1px solid #ccc;
+    }
+    .val-label {
+      font-size: 12px;
+      color: #555;
+      display: block;
+    }
+    .val-value {
+      font-size: 15px;
+      font-weight: bold;
+    }
+    .data-block {
+      display: flex;
+      gap: 32px;
+      margin-bottom: 40px;
+    }
+    .company-snapshot {
+      flex: 0 0 280px;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+    .company-snapshot h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    .right-column {
+      flex: 1;
+      min-width: 0;
+    }
+    .price-range-bar {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-bottom: 0;
+    }
+    .price-range-bar th {
+      background-color: #1a1a2e;
+      color: white;
+      padding: 6px 8px;
+      text-align: center;
+    }
+    .price-range-bar td {
+      padding: 6px 8px;
+      text-align: center;
+      border: 1px solid #ccc;
+      line-height: 1.4;
+      white-space: nowrap;
+    }
+    .chart-container {
+      width: 100%;
+      height: 220px;
+      margin-bottom: 0;
+    }
+    .financial-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 15px;
+    }
+    .financial-table th {
+      background-color: #1a1a2e;
+      color: white;
+      padding: 8px 10px;
+      text-align: right;
+      white-space: nowrap;
+    }
+    .financial-table th:first-child {
+      text-align: left;
+    }
+    .financial-table td {
+      padding: 7px 10px;
+      border-bottom: 1px solid #e0e0e0;
+      text-align: right;
+      white-space: nowrap;
+    }
+    .financial-table td:first-child {
+      text-align: left;
+      font-weight: 500;
+    }
+    .financial-table tr:nth-child(even) {
+      background-color: #f7f7f7;
+    }
+    .narrative {
+      font-size: 17px;
+      line-height: 1.85;
+      max-width: 960px;
+      border-top: 2px solid #1a1a2e;
+      padding-top: 24px;
+    }
+    .narrative p {
+      margin-bottom: 20px;
+    }
+    .analyst-sig {
+      font-size: 15px;
+      color: #555;
+      margin-top: 24px;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+<div class="report-brand">The Fedeli Group — TFG Family Investment Research</div>
+
+<!-- ═══════════════════════════════════════════════
+     SECTION 1 — HEADER
+═══════════════════════════════════════════════ -->
+<table class="header-table">
+  <thead>
+    <tr>
+      <th>Company &amp; Ticker</th>
+      <th>Recent Price</th>
+      <th>Trailing P/E</th>
+      <th>Forward P/E</th>
+      <th>Dividend Yield</th>
+      <th>Market Cap</th>
+      <th>Beta</th>
+      <th>Timeliness (1–5)</th>
+      <th>Safety (1–5)</th>
+      <th>Financial Strength</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Uber Technologies / UBER</strong></td>
+      <td>$73.89</td>
+      <td>15.6x</td>
+      <td>21.7x</td>
+      <td>None</td>
+      <td>$152B</td>
+      <td>1.21</td>
+      <td>2</td>
+      <td>3</td>
+      <td>B+</td>
+    </tr>
+    <tr>
+      <td colspan="4" style="background:#ffffff; padding:10px 12px;">
+        <span class="val-label">EV/EBITDA (TTM)</span>
+        <span class="val-value">23.9x</span>
+      </td>
+      <td colspan="2" style="background:#ffffff; padding:10px 12px;">
+        <span class="val-label">EV/EBITDA +1 Yr (E)</span>
+        <span class="val-value">~18.5x</span>
+      </td>
+      <td colspan="2" style="background:#ffffff; padding:10px 12px;">
+        <span class="val-label">EV/EBITDA +2 Yr (E)</span>
+        <span class="val-value">~14.5x</span>
+      </td>
+      <td colspan="2" style="background:#ffffff; padding:10px 12px;">
+        <span class="val-label">PEG Ratio</span>
+        <span class="val-value">0.89</span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ═══════════════════════════════════════════════
+     SECTION 2 — DATA BLOCK
+═══════════════════════════════════════════════ -->
+<div class="data-block">
+
+  <!-- LEFT: Snapshot -->
+  <div class="company-snapshot">
+    <h2>Uber Technologies, Inc.</h2>
+    <p>
+      Uber operates the world's largest on-demand mobility and delivery platform, connecting consumers with drivers, couriers, and merchants across approximately 70 countries and 15,000 cities. The business runs three segments: Mobility (ride-hailing, ~53% of 2025 revenue), Delivery (Uber Eats and grocery, ~37%), and Freight (digital brokerage, ~10%). Full-year 2025 revenue reached $52.0 billion with gross bookings of $193 billion and Adjusted EBITDA of $8.7 billion — EBITDA that nearly doubled in two years. Uber's platform network effects and driver/consumer flywheel provide a durable competitive moat, but the moat is narrower than commonly assumed: Lyft, DoorDash, and global peers maintain credible share in key markets. Key risks include regulatory reclassification of gig workers (which would structurally raise costs), autonomous vehicle disruption from Tesla, Waymo, and others, and Delivery margin compression in a price-sensitive consumer environment. At roughly 24x TTM EV/EBITDA, the stock trades at a modest discount to its 2024 peak but well above pre-profitability comparables. <strong>HQ:</strong> San Francisco, CA. <strong>CEO:</strong> Dara Khosrowshahi. <strong>Ticker:</strong> NYSE: UBER. <strong>Web:</strong> investor.uber.com.
+    </p>
+  </div>
+
+  <!-- RIGHT: Price Bar + Chart + Table -->
+  <div class="right-column">
+
+    <!-- Annual Price Range Bar -->
+    <table class="price-range-bar">
+      <thead>
+        <tr>
+          <th>2020</th>
+          <th>2021</th>
+          <th>2022</th>
+          <th>2023</th>
+          <th>2024</th>
+          <th>2025</th>
+          <th>2026 (E)</th>
+          <th>'27–'28 (E)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>H: $43.90<br>L: $13.71</td>
+          <td>H: $64.05<br>L: $33.14</td>
+          <td>H: $47.08<br>L: $19.90</td>
+          <td>H: $57.71<br>L: $25.29</td>
+          <td>H: $87.01<br>L: $56.90</td>
+          <td>H: $101.99<br>L: $57.32</td>
+          <td>H: —<br>L: —</td>
+          <td>H: —<br>L: —</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Chart.js: EPS bar + Relative P/E line -->
+    <div class="chart-container">
+      <canvas id="uberChart"></canvas>
+    </div>
+
+    <!-- Financial Table -->
+    <table class="financial-table">
+      <thead>
+        <tr>
+          <th>Fiscal Year</th>
+          <th>2020</th>
+          <th>2021</th>
+          <th>2022</th>
+          <th>2023</th>
+          <th>2024</th>
+          <th>2025</th>
+          <th>2026 (E)</th>
+          <th>'27–'28 (E)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Revenues per Share</td><td>$5.63</td><td>$8.85</td><td>$16.01</td><td>$18.91</td><td>$21.07</td><td>$25.12</td><td>$29.00(E)</td><td>$33–38(E)</td></tr>
+        <tr><td>"Cash Flow" per Share</td><td>–$3.29</td><td>–$0.01</td><td>–$1.18</td><td>$1.06</td><td>$3.41</td><td>$4.97</td><td>$5.80(E)</td><td>$7–9(E)</td></tr>
+        <tr><td>Earnings per Share</td><td>–$3.43</td><td>–$0.25</td><td>–$2.78</td><td>$0.87</td><td>$4.56</td><td>$4.73</td><td>$3.40(E)</td><td>$4.50–5.50(E)</td></tr>
+        <tr><td>Dist. Decl'd per Share</td><td>Nil</td><td>Nil</td><td>Nil</td><td>Nil</td><td>Nil</td><td>Nil</td><td>Nil(E)</td><td>Nil(E)</td></tr>
+        <tr><td>Cap'l Spending per Share</td><td>$0.06</td><td>$0.09</td><td>$0.14</td><td>$0.12</td><td>$0.12</td><td>$0.16</td><td>$0.20(E)</td><td>$0.20–0.25(E)</td></tr>
+        <tr><td>Book Value per Share</td><td>$5.72</td><td>$6.33</td><td>$3.25</td><td>$3.74</td><td>$10.38</td><td>$13.20</td><td>$15.00(E)</td><td>$18–22(E)</td></tr>
+        <tr><td>Shares/Units Outstanding (M)</td><td>1,975</td><td>1,975</td><td>2,037</td><td>2,097</td><td>2,088</td><td>2,068</td><td>2,040(E)</td><td>1,980–2,010(E)</td></tr>
+        <tr><td>Avg Ann'l P/E Ratio</td><td>NM</td><td>NM</td><td>NM</td><td>43x</td><td>13x</td><td>18x</td><td>22x(E)</td><td>18–22x(E)</td></tr>
+        <tr><td>Relative P/E Ratio</td><td>—</td><td>—</td><td>—</td><td>1.84</td><td>0.54</td><td>0.72</td><td>0.85(E)</td><td>0.75–0.90(E)</td></tr>
+        <tr><td>Avg Ann'l Dist. Yield</td><td>Nil</td><td>Nil</td><td>Nil</td><td>Nil</td><td>Nil</td><td>Nil</td><td>Nil(E)</td><td>Nil(E)</td></tr>
+        <tr><td>Revenues ($mill)</td><td>$11,139</td><td>$17,455</td><td>$31,877</td><td>$37,281</td><td>$43,978</td><td>$52,017</td><td>$60,500(E)</td><td>$70–80K(E)</td></tr>
+        <tr><td>Operating Margin (%)</td><td>NM</td><td>NM</td><td>NM</td><td>0.7%</td><td>6.4%</td><td>10.7%</td><td>12.5%(E)</td><td>14–16%(E)</td></tr>
+        <tr><td>Depreciation ($mill)</td><td>$592</td><td>$467</td><td>$415</td><td>$415</td><td>$421</td><td>$464</td><td>$500(E)</td><td>$550–600(E)</td></tr>
+        <tr><td>Net Profit ($mill)</td><td>–$6,768</td><td>–$496</td><td>–$5,787</td><td>$1,887</td><td>$9,856</td><td>$10,053</td><td>$7,000(E)</td><td>$9–11K(E)</td></tr>
+        <tr><td>Income Tax Rate (%)</td><td>NM</td><td>NM</td><td>NM</td><td>NM</td><td>NM*</td><td>NM*</td><td>15%(E)</td><td>15–18%(E)</td></tr>
+        <tr><td>Net Profit Margin (%)</td><td>NM</td><td>NM</td><td>NM</td><td>5.1%</td><td>22.4%*</td><td>19.3%*</td><td>11.6%(E)</td><td>13–14%(E)</td></tr>
+        <tr><td>Working Cap'l ($mill)</td><td>$4,380</td><td>$5,320</td><td>$1,970</td><td>$1,540</td><td>$2,210</td><td>$2,850</td><td>$3,200(E)</td><td>$3.5–4K(E)</td></tr>
+        <tr><td>Long-Term Debt ($mill)</td><td>$9,276</td><td>$9,359</td><td>$9,259</td><td>$9,459</td><td>$7,430</td><td>$10,530</td><td>$9,500(E)</td><td>$8–9K(E)</td></tr>
+        <tr><td>Shareholders' Capital ($mill)</td><td>$11,301</td><td>$12,500</td><td>$6,598</td><td>$7,838</td><td>$21,690</td><td>$27,297</td><td>$30,600(E)</td><td>$36–42K(E)</td></tr>
+        <tr><td>Return on Total Cap'l (%)</td><td>NM</td><td>NM</td><td>NM</td><td>3.0%</td><td>29.0%*</td><td>24.5%*</td><td>13.5%(E)</td><td>16–18%(E)</td></tr>
+        <tr><td>Return on Shareholders' Cap'l (%)</td><td>NM</td><td>NM</td><td>NM</td><td>24.1%</td><td>45.5%*</td><td>36.8%*</td><td>22.9%(E)</td><td>24–28%(E)</td></tr>
+        <tr><td>Retained to Shareholders' Cap'l (%)</td><td>NM</td><td>NM</td><td>NM</td><td>100%</td><td>100%</td><td>100%</td><td>100%(E)</td><td>100%(E)</td></tr>
+        <tr><td>All Dist. to Net Profit (%)</td><td>Nil</td><td>Nil</td><td>Nil</td><td>Nil</td><td>Nil</td><td>Nil</td><td>Nil(E)</td><td>Nil(E)</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:12px; color:#777; margin-top:6px;">* Net profit and return metrics in 2024–2025 significantly inflated by non-cash tax valuation allowance releases ($6.4B in 2024, $5.0B in 2025). Non-GAAP EPS: 2024 $1.82; 2025 $2.45. Normalized return ratios are materially lower. See narrative.</p>
+
+  </div><!-- end right-column -->
+</div><!-- end data-block -->
+
+<!-- ═══════════════════════════════════════════════
+     SECTION 3 — NARRATIVE
+═══════════════════════════════════════════════ -->
+<div class="narrative">
+
+  <p>
+    Uber's full-year 2025 results were operationally strong but require careful decomposition — the headline $10.1 billion GAAP net income is a number that flatters, not illuminates. It includes a $5.0 billion non-cash tax valuation allowance release, a benefit that converts previously unrecognized deferred tax assets into income with zero cash impact. Strip that out alongside modest equity investment mark-to-market noise and the underlying non-GAAP net income was $5.2 billion, or $2.45 per diluted share — a 35% year-over-year increase. That's the signal. Revenue of $52.0 billion grew 18%, gross bookings hit $193 billion, and Adjusted EBITDA expanded to $8.7 billion — a 35% increase — with EBITDA margin on gross bookings at 4.5%, up meaningfully from 4.0% in 2024. Free cash flow of $9.8 billion represents the clearest evidence of genuine cash generation and was the strongest metric of the year. The Q4 punctuation was particularly impressive: 22% trip growth, 22% gross bookings growth, and record operating income of $1.8 billion. What gave analysts pause was the Q4 adjusted EPS of $0.23 against a $0.50 consensus — but this reflected non-cash investment mark-to-market losses, not operating deterioration. Earnings quality is actually improving, not deteriorating; the confusion stems from investors anchoring to GAAP rather than operational throughput.
+  </p>
+
+  <p>
+    The 12–24 month investment case hinges on three distinct drivers, each with its own embedded uncertainty. First, operating leverage: Uber has demonstrated that incremental gross booking dollars convert at high margins — operating margin improved from 6.4% in 2024 to 10.7% in 2025 and the trajectory toward 14–16% is credible if volume growth holds near 18–20%. This is not a speculative bet; it's visible in the segment P&amp;L. Second, autonomous vehicles: this is the most asymmetric and least priced item. Uber's strategy — being the AV aggregator rather than the builder — is intellectually sound (avoid capital intensity, collect the booking take rate), but Waymo's direct-to-consumer ambitions and Tesla's RoboTaxi rollout challenge the assumption that OEMs will be content to route through Uber's platform indefinitely. Management's claim of a "clear path to becoming the largest facilitator of AV trips" deserves skepticism; the path runs through contract negotiations Uber does not fully control. Third, capital return: the $20 billion share repurchase authorization announced mid-2025 is meaningful relative to the $152 billion market cap, and buybacks at current prices would be accretive at any reasonable growth scenario. Specific risks to the base case include a regulatory reclassification of gig workers in California or the EU (estimated structural cost impact: $2–4 billion annually), a macro-driven pullback in discretionary ride-hailing demand, and currency headwinds given that roughly 35–40% of gross bookings now originate outside the U.S.
+  </p>
+
+  <p>
+    Rating: <strong>BUY</strong>. Price target: <strong>$100</strong> over 12 months, implying ~35% upside from $73.89. The target is derived by applying 20x forward EV/EBITDA to a 2026 Adjusted EBITDA estimate of approximately $11 billion, plus net cash normalization — consistent with how high-quality platform businesses with 18–20% top-line growth and expanding margins have been valued across cycles. At roughly 15x non-GAAP 2026 EPS of ~$3.40 with a PEG below 1.0, the stock is arguably one of the more compelling large-cap setups in the consumer tech space. The consensus price target of $106 is not heroic. The single condition that would change this view is evidence that Waymo — or an AV competitor — successfully bypasses Uber's platform at scale in a top-5 U.S. market: that would compress the long-run take rate assumption and fundamentally alter the bull case. Until that occurs, Uber's network density, brand recognition, and driver supply advantage preserve the platform's value to both consumers and eventual AV operators.
+  </p>
+
+  <p class="analyst-sig">
+    TFG Investment Research | Report Date: March 22, 2026 | Next Expected Earnings: May 6, 2026 (Q1 2026)
+  </p>
+
+</div>
+
+<!-- Chart Script -->
+<script>
+  const years = ['2020','2021','2022','2023','2024','2025','2026(E)','\'27–\'28(E)'];
+  
+  // EPS data — GAAP diluted
+  const epsData = [-3.43, -0.25, -2.78, 0.87, 4.56, 4.73, 3.40, 5.00];
+  
+  // Relative P/E (avg annual P/E / S&P 500 trailing P/E ~23x blended)
+  const relPE = [null, null, null, 1.84, 0.54, 0.72, 0.85, 0.82];
+
+  // Color arrays: historical = navy/red, estimates = lighter
+  const epsColors = [
+    '#1a1a2e','#1a1a2e','#1a1a2e','#1a1a2e','#1a1a2e','#1a1a2e',
+    '#7f8fa6','#7f8fa6'
+  ];
+
+  const ctx = document.getElementById('uberChart').getContext('2d');
+
+  new Chart(ctx, {
+    data: {
+      labels: years,
+      datasets: [
+        {
+          type: 'bar',
+          label: 'EPS ($)',
+          data: epsData,
+          backgroundColor: epsColors,
+          yAxisID: 'yLeft',
+          order: 2
+        },
+        {
+          type: 'line',
+          label: 'Relative P/E',
+          data: relPE,
+          borderColor: '#c0392b',
+          borderWidth: 2,
+          fill: false,
+          pointBackgroundColor: '#c0392b',
+          yAxisID: 'yRight',
+          order: 1,
+          segment: {
+            borderDash: ctx => ctx.p0DataIndex >= 5 ? [5,5] : []
+          }
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: true, position: 'top', labels: { font: { size: 12 } } }
+      },
+      scales: {
+        yLeft: {
+          type: 'linear',
+          position: 'left',
+          title: { display: true, text: 'EPS ($)', font: { size: 11 } },
+          grid: { drawOnChartArea: true }
+        },
+        yRight: {
+          type: 'linear',
+          position: 'right',
+          title: { display: true, text: 'Relative P/E', font: { size: 11 } },
+          grid: { drawOnChartArea: false },
+          min: 0,
+          max: 3
+        }
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
